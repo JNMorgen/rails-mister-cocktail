@@ -1,15 +1,32 @@
-<tbody>
-    <% @cocktails.each do |cocktail| %>
-      <tr>
-        <td><%= cocktail.name %></td>
-        <td><%= link_to 'Show', cocktail %></td>
-        <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
-        <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path 'bar.jpg' %>);">
+  <div class="banner-content">
+    <h1>Your Cocktails</h1>
+    <p>Drink Like a God</p>
+    <a class="btn btn-primary btn-lg" <%= link_to 'Add your Creation!', new_cocktail_path %> 
+    </div>
+  </div>
+  <div class="container">
+   <% @cocktails.each do |cocktail| %>
+   <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'gin.jpg' %> )">
+      <div class="card-category">Ingredients</div>
+      <div class="card-description">
+        <h2><%= cocktail.name %></h2>
+        <%= link_to 'Show', cocktail %>
+        <%= link_to 'Edit', edit_cocktail_path(cocktail) %>
+        <%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  </div>  
+  <% end %>
+</div>
 
-<br>
 
-<%= link_to 'New cocktail', new_cocktail_path %>
+
+
+
+
+
+
+
